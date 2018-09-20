@@ -12,6 +12,38 @@ public class ToDoList{
 		
 		ToDo[] itemList = new ToDo[MAXTODOLIST];
 		
+		while(true){
+		
+			option = printMenu();
+			
+			if(option == 'a'){
+				// use for loop to print array
+				for(int i = 0; i < ToDo.count; i++){
+					System.out.println((i+1) + " TODO: " + itemList[i].getToDo());
+				}
+			} else if (option == 'b'){
+				System.out.print(" Type your todo item: ");
+				todo = inputDevice.nextLine();
+				int count = ToDo.count;
+				itemList[count] = new ToDo();
+				itemList[count].addTodo(todo);
+			} else if (option == 'c'){
+				System.out.print(" Which item do you want to mark as done: ");
+				int d = inputDevice.nextInt();
+				inputDevice.nextLine();
+				itemList[(d - 1)].markDone();
+			} else if (option == 'd'){
+				System.out.println(" You have " + ToDo.count + " ToDo items.");
+			} else {
+				// Bad option 
+			}
+		}
+	}
+	
+	private static char printMenu(){
+		
+		Scanner iDevice = new Scanner(System.in);
+		
 		System.out.println("****************************");
 		System.out.println(" What do you want to do?");
 		System.out.println(" a) Show ToDo List");
@@ -19,24 +51,10 @@ public class ToDoList{
 		System.out.println(" c) Mark ToDo Item as done");
 		System.out.println(" d) Print count of ToDos");
 		System.out.println("*****************************");
-		option = inputDevice.next().charAt(0);
-		inputDevice.nextLine();
+		System.out.print(" Choose an option: ");
+		char i = iDevice.next().charAt(0);
+		iDevice.nextLine();
 		
-		if(option == 'a'){
-			// use for loop to print array
-		} else if (option == 'b'){
-			System.out.println(" Type your todo item");
-			todo = inputDevice.nextLine();
-			int count = ToDo.count;
-			itemList[count] = new ToDo();
-			itemList[count].addTodo(todo);
-		} else if (option == 'c'){
-			// Mark as done
-		} else if (option == 'd'){
-			System.out.println(" You have " + ToDo.count + " ToDo items.");
-		} else {
-			// Bad option 
-		}
-		
+		return i;
 	}
 }
