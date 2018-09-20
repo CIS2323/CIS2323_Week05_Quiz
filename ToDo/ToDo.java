@@ -6,7 +6,7 @@ public class ToDo {
 	private String item;
 	private boolean isDone = false;
 	
-	public void addTodo(String i){
+	public ToDo(String i){
 		item = i;
 		count++;
 	}

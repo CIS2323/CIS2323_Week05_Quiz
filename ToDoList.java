@@ -25,8 +25,7 @@ public class ToDoList{
 				System.out.print(" Type your todo item: ");
 				todo = inputDevice.nextLine();
 				int count = ToDo.count;
-				itemList[count] = new ToDo();
-				itemList[count].addTodo(todo);
+				itemList[count] = new ToDo(todo);
 			} else if (option == 'c'){
 				System.out.print(" Which item do you want to mark as done: ");
 				int d = inputDevice.nextInt();
