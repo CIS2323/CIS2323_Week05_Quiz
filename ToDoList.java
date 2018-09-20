@@ -6,7 +6,37 @@ public class ToDoList{
 	public static void main(String[] args){
 		
 		final int MAXTODOLIST = 10;
+		Scanner inputDevice = new Scanner(System.in);
+		char option = 'a';
+		String todo = "";
 		
 		ToDo[] itemList = new ToDo[MAXTODOLIST];
+		
+		System.out.println("****************************");
+		System.out.println(" What do you want to do?");
+		System.out.println(" a) Show ToDo List");
+		System.out.println(" b) Add to ToDo List");
+		System.out.println(" c) Mark ToDo Item as done");
+		System.out.println(" d) Print count of ToDos");
+		System.out.println("*****************************");
+		option = inputDevice.next().charAt(0);
+		inputDevice.nextLine();
+		
+		if(option == 'a'){
+			// use for loop to print array
+		} else if (option == 'b'){
+			System.out.println(" Type your todo item");
+			todo = inputDevice.nextLine();
+			int count = ToDo.count;
+			itemList[count] = new ToDo();
+			itemList[count].addTodo(todo);
+		} else if (option == 'c'){
+			// Mark as done
+		} else if (option == 'd'){
+			System.out.println(" You have " + ToDo.count + " ToDo items.");
+		} else {
+			// Bad option 
+		}
+		
 	}
 }
